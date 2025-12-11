@@ -17,3 +17,52 @@
 // Subtraction is used when a smaller symbol appears before a larger one, to represent 4 or 9 in any place value. For example, 19 is written as XIX (10 + (10 - 1)).
 // No symbol may be repeated more than three times in a row. Subtraction is used when you would otherwise need to write a symbol more than three times in a row. So the largest number you can write is 3999.
 // Here's one more example: given 1464, return "MCDLXIV" (1000 + (500 - 100) + 50 + 10 + (5 - 1)).
+
+function toRoman(num) {
+  console.log(num);
+  // add a counter & subtract modular
+  let counter = num;
+  // take number
+  const arr = [];
+  if (counter > 1) {
+    // if modular 1000 === 0
+    if (num % 1000 === 0) {
+      // push M
+      arr.push('M');
+      counter - 1000;
+      // if modular 500 === 0
+    } else if (num % 500 === 0) {
+      // push D
+      arr.push('D');
+      counter - 500;
+      // if modular 100 === 0
+    } else if (num % 100 === 0) {
+      // push C
+      arr.push('C');
+      counter - 100;
+      // if modular 50 === 0
+    } else if (num % 50 === 0) {
+      // push L
+      arr.push('L');
+      counter - 50;
+      // if modular 10 === 0
+    } else if (num % 10 === 0) {
+      // push X
+      arr.push('X');
+      counter - 10;
+      // if modular 5 === 0
+    } else if (num % 5 === 0) {
+      // push V
+      arr.push('V');
+      counter - 5;
+      // if modular 1 === 0
+    } else if (num % 1 === 0)
+      // push I
+      arr.push('I');
+    counter - 1;
+  }
+  console.log(counter);
+
+  console.log(arr);
+  // return num;
+}
