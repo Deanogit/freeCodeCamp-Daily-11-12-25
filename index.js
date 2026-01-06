@@ -20,49 +20,82 @@
 
 function toRoman(num) {
   console.log(num);
-  // add a counter & subtract modular
-  let counter = num;
-  // take number
-  const arr = [];
-  if (counter > 1) {
-    // if modular 1000 === 0
-    if (num % 1000 === 0) {
-      // push M
-      arr.push('M');
-      counter - 1000;
-      // if modular 500 === 0
-    } else if (num % 500 === 0) {
-      // push D
-      arr.push('D');
-      counter - 500;
-      // if modular 100 === 0
-    } else if (num % 100 === 0) {
-      // push C
-      arr.push('C');
-      counter - 100;
-      // if modular 50 === 0
-    } else if (num % 50 === 0) {
-      // push L
-      arr.push('L');
-      counter - 50;
-      // if modular 10 === 0
-    } else if (num % 10 === 0) {
-      // push X
-      arr.push('X');
-      counter - 10;
-      // if modular 5 === 0
-    } else if (num % 5 === 0) {
-      // push V
-      arr.push('V');
-      counter - 5;
-      // if modular 1 === 0
-    } else if (num % 1 === 0)
-      // push I
-      arr.push('I');
-    counter - 1;
-  }
-  console.log(counter);
 
-  console.log(arr);
+  // Map of values
+  const arr = [
+    { 1000: 'M' },
+    { 900: 'CM' },
+    { 500: 'D' },
+    { 400: 'CD' },
+    { 100: 'C' },
+    { 90: 'XC' },
+    { 50: 'L' },
+    { 40: 'XL' },
+    { 10: 'X' },
+    { 9: 'IX' },
+    { 5: 'V' },
+    { 4: 'IV' },
+    { 1: 'I' },
+  ];
+
+  let string = '';
+  // the greedy loop
+  // start with largest value
+  for (let i = 0; i < arr.length; i++) {
+    while (num > arr[i]) {
+      string += arr[i].value;
+      num -= arr[i];
+    }
+  }
+  console.log(string);
+
+  return string;
+
+  // add a counter & subtract modular
+  // let counter = num
+  // take number
+  // const arr = [];
+  // if (counter > 1) {
+  // if modular 1000 === 0
+  //    if (num % 1000 ) {
+  // push M
+  //        arr.push('M');
+  //        counter - 1000;
+  // if modular 500 === 0
+  //      } else if (num % 500 === 0) {
+  // push D
+  //          arr.push('D');
+  //          counter - 500;
+  // if modular 100 === 0
+  //      } else if (num % 100 === 0) {
+  // push C
+  //           arr.push('C');
+  //           counter - 100;
+  // if modular 50 === 0
+  //       } else if (num % 50 === 0) {
+  // push L
+  //           arr.push('L');
+  //           counter - 50;
+  // if modular 10 === 0
+  //       } else if (num % 10 === 0) {
+  // push X
+  //           arr.push('X');
+  //           counter - 10;
+  // if modular 5 === 0
+  //       } else if (num % 5 === 0) {
+  // push V
+  //           arr.push('V');
+  //           counter - 5;
+  // if modular 1 === 0
+  //       } else if (num % 1 === 0)
+  // push I
+  //           arr.push('I');
+  //           counter - 1
+  //       }
+  //       console.log(counter)
+
+  // console.log(arr);
   // return num;
 }
+
+toRoman(10001);
