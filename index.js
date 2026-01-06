@@ -17,6 +17,7 @@
 // Subtraction is used when a smaller symbol appears before a larger one, to represent 4 or 9 in any place value. For example, 19 is written as XIX (10 + (10 - 1)).
 // No symbol may be repeated more than three times in a row. Subtraction is used when you would otherwise need to write a symbol more than three times in a row. So the largest number you can write is 3999.
 // Here's one more example: given 1464, return "MCDLXIV" (1000 + (500 - 100) + 50 + 10 + (5 - 1)).
+
 function toRoman(num) {
   console.log(num);
 
@@ -41,7 +42,7 @@ function toRoman(num) {
   // the greedy loop
   // start with largest value
   for (let i = 0; i < arr.length; i++) {
-    while (num > arr[i]) {
+    while (num >= arr[i][0]) {
       string += arr[i][1];
       num -= arr[i][0];
     }
